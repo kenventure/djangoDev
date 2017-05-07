@@ -1,0 +1,14 @@
+
+<html>
+
+<body>
+<h1>Image Template</h1>
+<p>
+Image found {{img.id}}, date {{img.dateModified}}, <br>
+contents {{img.contents}},<br>
+
+{% for entry in img.history %}{{entry}}, 	<br>	{% endfor %}
+
+</p>
+</body>
+</html>
