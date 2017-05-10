@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from contentServer.views import hello, my_homepage_view, current_datetime, hours_ahead, name, image, imageTmp
+from contentServer.views import hello, my_homepage_view, current_datetime, hours_ahead, name, image, imageTmp, display_meta
+from books import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -25,4 +26,7 @@ urlpatterns = [
 	url(r'^name/(?P<username>[\w.@+-]+)', name),
 	url(r'^image/(\d{1,5})/$', imageTmp),
 	url(r'^$', my_homepage_view),
+	url(r'^meta/$', display_meta),
+	url(r'^search_book/$', views.search_form),
+	url(r'^search/$', views.search),
 ]

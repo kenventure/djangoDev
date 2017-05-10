@@ -90,3 +90,14 @@ def imageTmp (request, offset):
 	except KeyError:
 		html='image not found'
 	return HttpResponse(html)
+	
+	
+def display_meta(request):
+    values = request.META.items()
+    #values.sort() 
+    sorted (values)
+    html = []
+    for k, v in values:
+        html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
+    return HttpResponse('<table>%s</table>' % '\n'.join(html))
+
